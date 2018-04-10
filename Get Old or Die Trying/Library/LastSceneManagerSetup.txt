@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Probeszene.unity
-  isLoaded: 1
-  isActive: 1
