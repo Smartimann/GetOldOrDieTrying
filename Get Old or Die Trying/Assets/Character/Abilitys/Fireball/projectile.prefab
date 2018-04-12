@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160535582878464}
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.258, y: 1.672, z: -0.292}
+  m_LocalPosition: {x: 1.648, y: 1.672, z: -0.675}
   m_LocalScale: {x: 0.099999964, y: 0.09999997, z: 0.09999997}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocity: 5
   Direction: {x: 1, y: 0, z: 0}
-  damage: 3
+  damage: 7
   _didHitSomething: 0
 --- !u!122 &122273422055766644
 Halo:
