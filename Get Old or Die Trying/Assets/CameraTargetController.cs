@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraTargetController : MonoBehaviour {
     public GameObject player;
-    public float height = 35f;
+    public float height = 20f;
     public float centerValue = 20f;
 	
 	// Update is called once per frame
