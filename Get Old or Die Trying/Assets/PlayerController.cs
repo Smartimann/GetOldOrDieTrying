@@ -11,11 +11,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerGUI playerGui;
     [SerializeField] private MeshRenderer meshRenderer;
 
-    public GameObject fireballPrefabREMOVEMEFORGODSSAKE;
+
     public LayerMask LayerMask;
 
     public float LastTimeAddMana = 0f;
-    public int Health = 100, Mana = 100;
+    public AbilityBase aBase;
+
+
+    /*-------------------------------------------
+     * ----This Area defines The Players Stat----
+     * -----------------------------------------*/
 
     public bool PlayedDeadSequence = false;
     // Use this for initialization
@@ -29,7 +34,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Health > 0)
+        if (aBase.Health > 0)
         {
             if (Input.GetMouseButton(0))
             {
@@ -42,28 +47,17 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            if (Input.GetMouseButton(1) && Mana > 5)
-            {
-
+            if (Input.GetMouseButton(1) && aBase.Mana > 5)
+            { 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    var newFireball = GameObject.Instantiate(fireballPrefabREMOVEMEFORGODSSAKE);
-                    Vector3 vectorToHit = hit.point - transform.position;
-                    Vector3 directionToHit = vectorToHit;
-                    directionToHit.y = 0; // dont allow projectiles to travel into the ground
-                    newFireball.transform.position = transform.position + directionToHit.normalized;
-                    newFireball.GetComponent<FireballProjectile>().Direction = directionToHit.normalized;
-                    Mana -= 5;
-                }
+                aBase.Fireball(ray, this.transform);
             }
 
             const float ManaRefillRate = 0.1f;
             if (Time.time - LastTimeAddMana > ManaRefillRate)
             {
-                Mana += Mathf.RoundToInt((Time.time - LastTimeAddMana) / ManaRefillRate);
-                Mana = Mathf.Clamp(Mana, 0, 100);
+                aBase.Mana += Mathf.RoundToInt((Time.time - LastTimeAddMana) / ManaRefillRate);
+                aBase.Mana = Mathf.Clamp(aBase.Mana, 0, 100);
                 LastTimeAddMana = Time.time;
             }
 
@@ -83,8 +77,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        playerGui.SetMana(Mana);
-        playerGui.SetHealth(Health);
+        playerGui.SetMana(aBase.Mana);
+        playerGui.SetHealth(aBase.Health);
     }
 
     public void Damage(int damage)
@@ -98,7 +92,11 @@ public class PlayerController : MonoBehaviour
 
         mySequence.Append(meshRenderer.material.DOColor(Color.white, 0.02f));
 
-        Health -= damage;
-
+        aBase.Health -= damage;
     }
+
+
+
+
+
 }
