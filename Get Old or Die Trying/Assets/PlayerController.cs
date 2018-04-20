@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public float LastTimeAddMana = 0f;
     public AbilityBase aBase;
-
+    private Color OriginMaterialColor;
 
     /*-------------------------------------------
      * ----This Area defines The Players Stat----
@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         playerGui = FindObjectOfType<PlayerGUI>();
         meshRenderer = GetComponent<MeshRenderer>();
+        OriginMaterialColor = GetComponent<MeshRenderer>().sharedMaterial.color;
+
     }
 
     // Update is called once per frame
@@ -36,21 +38,37 @@ public class PlayerController : MonoBehaviour
     {
         if (aBase.Health > 0)
         {
-            if (Input.GetMouseButton(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    navMeshAgent.destination = hit.point;
-                }
 
+
+            if(Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                aBase.SkillState = 1;
             }
 
-            if (Input.GetMouseButton(1) && aBase.Mana > 5)
-            { 
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                aBase.SkillState = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                aBase.SkillState = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                aBase.SkillState = 4;
+            }
+
+
+            //Interact
+            if (Input.GetMouseButton(0))
+            {
+                RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                aBase.Fireball(ray, this.transform);
+
+                if (Physics.Raycast(ray, out hit, 999f, LayerMask.value)) {
+                    aBase.DoSomething(hit, this.transform, navMeshAgent);
+                }
+                
             }
 
             const float ManaRefillRate = 0.1f;
@@ -90,7 +108,7 @@ public class PlayerController : MonoBehaviour
         // Delay the whole Sequence by 1 second
         mySequence.PrependInterval(0.05f);
 
-        mySequence.Append(meshRenderer.material.DOColor(Color.white, 0.02f));
+        mySequence.Append(meshRenderer.material.DOColor(OriginMaterialColor, 0.02f));
 
         aBase.Health -= damage;
     }

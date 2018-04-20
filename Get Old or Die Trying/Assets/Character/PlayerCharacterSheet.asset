@@ -18,5 +18,6 @@ MonoBehaviour:
   Agility: 20
   Intelligence: 20
   AlienPower: 20
-  Health: 0
-  Mana: 16
+  Health: 2147483647
+  Mana: 100
+  SkillState: 1

@@ -12,7 +12,7 @@ public class CameraTargetController : MonoBehaviour {
         Vector3 pos = player.transform.position;
         pos.x = pos.x - centerValue;
         pos.z = pos.z - centerValue;
-        pos.y = height;
+        pos.y = height + pos.y;
         transform.position = pos;
         
 	}

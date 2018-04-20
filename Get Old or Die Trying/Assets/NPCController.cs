@@ -14,6 +14,7 @@ public class NPCController : MonoBehaviour
     [SerializeField] private MaterialPropertyBlock materialPropertyBlock;
     public float viewRange = 5f;
     public Transform player;
+    private Color OriginMaterialColor;
 
     public int Health = 100;
 	// Use this for initialization
@@ -23,7 +24,7 @@ public class NPCController : MonoBehaviour
 	    meshRenderer = GetComponent<MeshRenderer>();
 	    materialPropertyBlock = new MaterialPropertyBlock();
 	    player = FindObjectOfType<PlayerController>().transform;
-
+        OriginMaterialColor = GetComponent<MeshRenderer>().sharedMaterial.color;
 	}
 
     public bool PlayedDeadSequence = false;
@@ -65,9 +66,9 @@ public class NPCController : MonoBehaviour
         // Add a rotation tween as soon as the previous one is finished
         mySequence.Append(meshRenderer.material.DOColor(Color.red, 0.02f));
         // Delay the whole Sequence by 1 second
-        mySequence.PrependInterval(0.05f);
-
-        mySequence.Append(meshRenderer.material.DOColor(Color.white, 0.02f));
+       
+        
+        mySequence.Append(meshRenderer.material.DOColor(OriginMaterialColor, 2f));
 
         Health -= damage;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 [CreateAssetMenu(fileName = "PlayerCharacterSheet", menuName = "Abilitys/Skills")]
 public class AbilityBase : ScriptableObject
 {
@@ -28,32 +28,99 @@ public class AbilityBase : ScriptableObject
     private int abilityCounter = 0;
     private int strengthCounter = 0, dexterityCounter = 0, agilityCounter = 0, intelligenceCounter = 0, alienPowerCounter = 0;
 
+
+    //State Skill
+    public int SkillState = 1;
+
+
     /*--------------------------------
      -------SKILLS--------------------
      --------------------------------*/
+    //Wertet aus was getan wird
+    public void DoSomething(RaycastHit hit, Transform casterTransform, NavMeshAgent navMeshAgent)
+    {
+
+        Debug.Log("Object hit: " + hit.collider.gameObject.name);
+        //Interacting with enemy
+        if (hit.collider.gameObject.GetComponent<NPCController>() != null)
+        {
+            switch(SkillState)
+            {
+                case 1:
+                    Punch(hit, casterTransform);
+                    break;
+
+                case 2:
+                    Fireball(hit, casterTransform);
+                    break;
+            }
+
+        }
+        else
+        {
+            navMeshAgent.destination = hit.point;
+        }
+
+    }
+
+
 
     //Fireball: benutzt strength und alienPower
-    public void Fireball(Ray ray, Transform transform)
+    [System.NonSerialized] float lastTimeFired;
+    public void Fireball(RaycastHit hit, Transform casterTransform)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+
+
+        if (Time.time - lastTimeFired >= 1)
         {
             var newFireball = GameObject.Instantiate(fireballPrefabREMOVEMEFORGODSSAKE);
-            Vector3 vectorToHit = hit.point - transform.position;
+            Vector3 vectorToHit = hit.point - casterTransform.position;
             Vector3 directionToHit = vectorToHit;
             directionToHit.y = 0; // dont allow projectiles to travel into the ground
-            newFireball.transform.position = transform.position + directionToHit.normalized;
+            newFireball.transform.position = casterTransform.position + directionToHit.normalized;
             newFireball.GetComponent<FireballProjectile>().Direction = directionToHit.normalized;
             newFireball.GetComponent<FireballProjectile>().Direction = directionToHit.normalized;
             Mana -= 5;
-
+         
             //raising Counters
             abilityCounter += 1;
             intelligenceCounter += 1;
             alienPowerCounter += 1;
 
             DecayCalculation();
+            lastTimeFired = Time.time;    
         }
+    }
+
+    [System.NonSerialized] float lastTimePunch;
+    public void Punch(RaycastHit hit, Transform casterTransform)
+    {   
+        GameObject enemy = hit.collider.gameObject;
+        float distance = Vector3.Distance(casterTransform.position, enemy.transform.position);
+        Debug.Log(distance);
+        if (enemy.GetComponent<NPCController>() != null)
+        {
+            if (distance <= 2f)
+            {
+                if (Time.time - lastTimePunch >= 1)
+                {
+                    enemy.GetComponent<NPCController>().Damage(10);
+
+                    //raising Counters
+                    abilityCounter += 1;
+                    strengthCounter += 1;
+                    agilityCounter += 1;
+
+                    DecayCalculation();
+
+                    lastTimePunch = Time.time;
+
+                }
+            }       
+            
+        }
+        
+        
     }
 
     public void DecayCalculation()
