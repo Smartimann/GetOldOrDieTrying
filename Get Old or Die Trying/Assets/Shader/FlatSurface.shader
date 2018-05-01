@@ -19,8 +19,9 @@ Shader "Custom/FlatSurface" {
 		float _Nudge;
 		half4 LightingFlat (SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
 			fixed4 c;
-            c.rgb = s.Albedo * lerp(_gShadowColor, _LightColor0, atten);
-	
+			float NdotL = dot(lightDir, s.Normal) > 0.25;
+			atten *= NdotL;
+			c.rgb = s.Albedo * lerp(_gShadowColor, _LightColor0, atten);
             c.a = s.Alpha;
             return c;
         }

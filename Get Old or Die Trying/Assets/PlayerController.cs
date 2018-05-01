@@ -38,25 +38,36 @@ public class PlayerController : MonoBehaviour
     {
         if (aBase.Health > 0)
         {
+            {
+                bool abilityIndexChanged = false;
+                
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    aBase.AbilityActiveIndex = 1;
+                    abilityIndexChanged = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    aBase.AbilityActiveIndex = 2;
+                    abilityIndexChanged = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    aBase.AbilityActiveIndex = 3;
+                    abilityIndexChanged = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    aBase.AbilityActiveIndex = 4;
+                    abilityIndexChanged = true;
+                }
 
-
-            if(Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                aBase.SkillState = 1;
+                if (abilityIndexChanged)
+                {
+                    playerGui.SetActiveAbility(aBase.AbilityActiveIndex);
+                }
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                aBase.SkillState = 2;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                aBase.SkillState = 3;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                aBase.SkillState = 4;
-            }
 
 
             //Interact
@@ -71,6 +82,7 @@ public class PlayerController : MonoBehaviour
                 
             }
 
+            aBase.UpdateCooldownsGUI(playerGui);
             const float ManaRefillRate = 0.1f;
             if (Time.time - LastTimeAddMana > ManaRefillRate)
             {
