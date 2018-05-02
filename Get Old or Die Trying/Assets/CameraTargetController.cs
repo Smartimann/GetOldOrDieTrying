@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class CameraTargetController : MonoBehaviour {
     public GameObject player;
     public float height = 20f;

@@ -202,7 +202,9 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   viewRange: 5
   player: {fileID: 0}
-  Health: 100
+  PlayerGui: {fileID: 0}
+  Health: 10
+  _maxHealth: 0
   PlayedDeadSequence: 0
 --- !u!114 &114816829347242368
 MonoBehaviour:

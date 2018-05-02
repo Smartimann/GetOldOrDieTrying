@@ -16,7 +16,11 @@ public class NPCController : MonoBehaviour
     public Transform player;
     private Color OriginMaterialColor;
 
+    [SerializeField, HideInInspector] private PlayerGUI PlayerGui;
     public int Health = 100;
+
+    [SerializeField, HideInInspector]
+    private int _maxHealth;
 	// Use this for initialization
 	void Start ()
 	{
@@ -25,6 +29,10 @@ public class NPCController : MonoBehaviour
 	    materialPropertyBlock = new MaterialPropertyBlock();
 	    player = FindObjectOfType<PlayerController>().transform;
         OriginMaterialColor = GetComponent<MeshRenderer>().sharedMaterial.color;
+
+	    PlayerGui = FindObjectOfType<PlayerGUI>();
+	    _maxHealth = Health;
+
 	}
 
     public bool PlayedDeadSequence = false;
@@ -71,6 +79,8 @@ public class NPCController : MonoBehaviour
         mySequence.Append(meshRenderer.material.DOColor(OriginMaterialColor, 2f));
 
         Health -= damage;
+
+        PlayerGui.SetEnemyHealthBar(gameObject, Health / (float) _maxHealth);
 
     }
 }

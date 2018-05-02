@@ -10,6 +10,9 @@ public class PlayerGUI : MonoBehaviour
     private Toggle[] _abilityBarToggles;
     public Image HealthBar, ManaBar, RipImage;
     public Image Ability1Image, Ability2Image;
+    public GameObject EnemyHealthBarRoot;
+    [SerializeField] private GameObject lastEnemyHealtBarTarget;
+    public Image EnemyHealthBar;
     public void SetHealth(int health)
     {
         HealthBar.fillAmount =  (float) health / 100f;
@@ -66,5 +69,28 @@ public class PlayerGUI : MonoBehaviour
             playerController.aBase.AbilityActiveIndex = 2;
         }
     }
+
+    public void SetEnemyHealthBar(GameObject enemy, float health01)
+    {
+        lastEnemyHealtBarTarget = enemy;
+        EnemyHealthBarRoot.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(enemy.transform.position);
+        EnemyHealthBar.fillAmount = health01;
+    }
+
+    public void Update()
+    {
+        if (lastEnemyHealtBarTarget != null)
+        {
+            EnemyHealthBarRoot.SetActive(true);
+            EnemyHealthBarRoot.GetComponent<RectTransform>().position =
+                Camera.main.WorldToScreenPoint(lastEnemyHealtBarTarget.transform.position);
+        }
+        else
+        {
+            EnemyHealthBarRoot.SetActive(false);
+        }
+       
+    }
+
 
 }
