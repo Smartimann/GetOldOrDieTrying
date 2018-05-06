@@ -13,6 +13,24 @@ public class PlayerGUI : MonoBehaviour
     public GameObject EnemyHealthBarRoot;
     [SerializeField] private GameObject lastEnemyHealtBarTarget;
     public Image EnemyHealthBar;
+
+    public GameObject PlayerUI;
+    public GameObject Dialogue;
+    
+
+    public void ShowDialog()
+    {
+        
+        PlayerUI.SetActive(false);
+        Dialogue.SetActive(true);
+
+    }
+
+
+
+
+
+
     public void SetHealth(int health)
     {
         HealthBar.fillAmount =  (float) health / 100f;
@@ -22,6 +40,7 @@ public class PlayerGUI : MonoBehaviour
         }
         
     }
+
     public void SetMana(int Mana)
     {
         ManaBar.fillAmount = (float)Mana / 100f;

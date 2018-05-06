@@ -31,7 +31,7 @@ public class AbilityBase : ScriptableObject
 
     //State Skill
     public int AbilityActiveIndex = 1;
-
+    
 
     /*--------------------------------
      -------SKILLS--------------------
@@ -56,14 +56,21 @@ public class AbilityBase : ScriptableObject
             }
 
         }
-        else
+        else if(hit.collider.gameObject.GetComponent<GoodNPCController>() != null)
+        {
+            Talk(hit, casterTransform);
+        } else 
         {
             navMeshAgent.destination = hit.point;
         }
 
     }
 
-
+    //Sprechen: Sprich mit NPC
+    public void Talk(RaycastHit hit, Transform casterTransform)
+    {
+        Debug.Log("Talk");
+    }
 
     //Fireball: benutzt strength und alienPower
     [System.NonSerialized] float lastTimeFired;
