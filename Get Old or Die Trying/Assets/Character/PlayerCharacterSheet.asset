@@ -20,4 +20,10 @@ MonoBehaviour:
   AlienPower: 20
   Health: 2147483647
   Mana: 100
-  SkillState: 1
+  AbilityActiveIndex: 1
+  ClickMarker: {fileID: 1173770460943164, guid: 3ef14f8c21ba14041a7eb179184ef937,
+    type: 2}
+  clickMarkers:
+  - {fileID: 0}
+  FireballCooldown: 1
+  PunchCooldown: 1

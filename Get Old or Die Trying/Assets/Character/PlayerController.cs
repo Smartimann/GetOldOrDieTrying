@@ -18,11 +18,14 @@ public class PlayerController : MonoBehaviour
     public AbilityBase aBase;
     private Color OriginMaterialColor;
 
+
+
     /*-------------------------------------------
      * ----This Area defines The Players Stat----
      * -----------------------------------------*/
 
     public bool PlayedDeadSequence = false;
+    
     // Use this for initialization
     void Start()
     {

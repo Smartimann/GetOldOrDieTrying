@@ -31,7 +31,10 @@ public class AbilityBase : ScriptableObject
 
     //State Skill
     public int AbilityActiveIndex = 1;
-    
+
+    //ClickMarker
+    public GameObject ClickMarker;
+    public GameObject[] clickMarkers = new GameObject[1];
 
     /*--------------------------------
      -------SKILLS--------------------
@@ -62,6 +65,17 @@ public class AbilityBase : ScriptableObject
         } else 
         {
             navMeshAgent.destination = hit.point;
+            if (hit.collider.gameObject.tag == "Floor")
+            {
+                if (clickMarkers[0] != null)
+                {
+                    Destroy(clickMarkers[0]);
+                }
+                clickMarkers[0] = Instantiate(ClickMarker, hit.point, ClickMarker.transform.rotation);
+                Debug.Log("Marker");
+
+            }
+
         }
 
     }

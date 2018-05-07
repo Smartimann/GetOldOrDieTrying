@@ -529,7 +529,7 @@ Transform:
   m_LocalScale: {x: 1.0034431, y: 1.3652165, z: 1.3652165}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!114 &146087990
 MonoBehaviour:
@@ -7137,10 +7137,10 @@ RectTransform:
   m_Father: {fileID: 342812521}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.000015258789}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 24.999985, y: 24.999985}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480828122
 MonoBehaviour:
@@ -8019,7 +8019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4062085925769682, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1493615712422834, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
       propertyPath: m_Name
@@ -9907,7 +9907,7 @@ Transform:
   - {fileID: 1917142603}
   - {fileID: 1925585515}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952164045
 GameObject:
@@ -12059,7 +12059,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh15438
+  m_Name: pb_Mesh12026
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -13217,7 +13217,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4566639995909988, guid: fb1e9238502d8744a942fce150582387, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 122273422055766644, guid: fb1e9238502d8744a942fce150582387,
         type: 2}
@@ -13430,7 +13430,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh13188
+  m_Name: pb_Mesh11790
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -21867,10 +21867,8 @@ MonoBehaviour:
   asset_guid: 
   dontDestroyMeshOnDelete: 0
   m_selectedFaces: 
-  m_SelectedEdges:
-  - x: 75
-    y: 76
-  m_selectedTriangles: 4b0000004c000000
+  m_SelectedEdges: []
+  m_selectedTriangles: 
 --- !u!33 &2004951740
 MeshFilter:
   m_ObjectHideFlags: 0
