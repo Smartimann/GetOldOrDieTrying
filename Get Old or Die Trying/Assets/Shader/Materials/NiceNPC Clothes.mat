@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Nice NPC
+  m_Name: NiceNPC Clothes
   m_Shader: {fileID: 4800000, guid: 00eef2b3dd549e84d8db64e959c04a60, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.57807094, g: 0.9705882, b: 0.85689354, a: 1}
+    - _Color: {r: 0.1040225, g: 0.119087785, b: 0.27205884, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoodNPCController : MonoBehaviour {
-
+    public PlayerGUI playerGUI;
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void ShowDialogText()
-    {
-
+        playerGUI = FindObjectOfType<PlayerGUI>();
     }
+
+    // Update is called once per frame
+    void Update () {
+		
+	}
+
+    public void ShowDialogueText()
+    {
+        playerGUI.ShowDialogue();
+    }
+
+    
 }

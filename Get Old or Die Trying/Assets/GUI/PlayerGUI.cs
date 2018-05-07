@@ -16,14 +16,34 @@ public class PlayerGUI : MonoBehaviour
 
     public GameObject PlayerUI;
     public GameObject Dialogue;
-    
+    public Button quitButton;
+    public GameController gameController;
 
-    public void ShowDialog()
+
+    private void Start()
+    {
+
+        quitButton.onClick.AddListener(HideDialogue);
+        PlayerUI.SetActive(true);
+        Dialogue.SetActive(false);
+
+    }
+
+    //In dieses System könnte auch die Pausierung eingebaut werden
+    public void ShowDialogue()
     {
         
         PlayerUI.SetActive(false);
         Dialogue.SetActive(true);
+        gameController.PauseGame();
 
+    }
+
+    public void HideDialogue()
+    {
+        PlayerUI.SetActive(true);
+        Dialogue.SetActive(false);
+        gameController.ResumeGame();
     }
 
 

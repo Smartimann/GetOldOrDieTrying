@@ -69,7 +69,8 @@ public class AbilityBase : ScriptableObject
     //Sprechen: Sprich mit NPC
     public void Talk(RaycastHit hit, Transform casterTransform)
     {
-        Debug.Log("Talk");
+        hit.collider.GetComponent<GoodNPCController>().ShowDialogueText();
+
     }
 
     //Fireball: benutzt strength und alienPower
