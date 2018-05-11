@@ -40,7 +40,7 @@ public class AbilityBase : ScriptableObject
      -------SKILLS--------------------
      --------------------------------*/
     //Wertet aus was getan wird
-    public void DoSomething(RaycastHit hit, Transform casterTransform, NavMeshAgent navMeshAgent)
+    public void DoSomething(RaycastHit hit, Transform casterTransform, NavMeshAgent navMeshAgent, out Vector3[] outPathCorners)
     {
 
         Debug.Log("Object hit: " + hit.collider.gameObject.name);
@@ -65,9 +65,10 @@ public class AbilityBase : ScriptableObject
         } else 
         {
             navMeshAgent.destination = hit.point;
+      
             if (hit.collider.gameObject.tag == "Floor")
             {
-                if (clickMarkers[0] != null)
+                if (clickMarkers[0] != null) //TODO: instantiate once
                 {
                     Destroy(clickMarkers[0]);
                 }
@@ -77,7 +78,7 @@ public class AbilityBase : ScriptableObject
             }
 
         }
-
+        outPathCorners = navMeshAgent.path.corners;
     }
 
     //Sprechen: Sprich mit NPC

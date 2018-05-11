@@ -7,10 +7,10 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private PlayerGUI playerGui;
-    [SerializeField] private MeshRenderer meshRenderer;
-
+    [SerializeField, HideInInspector] private NavMeshAgent navMeshAgent;
+    [SerializeField, HideInInspector] private PlayerGUI playerGui;
+    [SerializeField, HideInInspector] private MeshRenderer meshRenderer;
+    [SerializeField] private LineRenderer lineRenderer;
 
     public LayerMask LayerMask;
 
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private Vector3[] _pathfindingCorners;
     // Update is called once per frame
     void Update()
     {
@@ -74,15 +75,22 @@ public class PlayerController : MonoBehaviour
 
 
             //Interact
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && !_isInventoryVisible)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out hit, 999f, LayerMask.value)) {
-                    aBase.DoSomething(hit, this.transform, navMeshAgent);
+                    aBase.DoSomething(hit, this.transform, navMeshAgent, out _pathfindingCorners);
+
+                    if (_pathfindingCorners != null)
+                    {
+                        lineRenderer.positionCount = _pathfindingCorners.Length;
+                        lineRenderer.SetPositions(_pathfindingCorners);
+                    }
                 }
                 
+
             }
 
             aBase.UpdateCooldownsGUI(playerGui);
@@ -112,8 +120,19 @@ public class PlayerController : MonoBehaviour
 
         playerGui.SetMana(aBase.Mana);
         playerGui.SetHealth(aBase.Health);
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            _isInventoryVisible = !_isInventoryVisible;
+            playerGui.SetInventory(_isInventoryVisible);
+            if(_isInventoryVisible)
+                GameController.PauseGame();
+            else
+                GameController.ResumeGame();
+        }
     }
 
+    [SerializeField, HideInInspector] private bool _isInventoryVisible = false;
     public void Damage(int damage)
     {
         // Grab a free Sequence to use

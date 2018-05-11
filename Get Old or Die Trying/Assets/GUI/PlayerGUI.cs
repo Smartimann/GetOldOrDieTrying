@@ -17,7 +17,8 @@ public class PlayerGUI : MonoBehaviour
     public GameObject PlayerUI;
     public GameObject Dialogue;
     public Button quitButton;
-    public GameController gameController;
+
+    public GameObject InventoryRoot;
 
 
     private void Start()
@@ -35,7 +36,7 @@ public class PlayerGUI : MonoBehaviour
         
         PlayerUI.SetActive(false);
         Dialogue.SetActive(true);
-        gameController.PauseGame();
+        GameController.PauseGame();
 
     }
 
@@ -43,13 +44,8 @@ public class PlayerGUI : MonoBehaviour
     {
         PlayerUI.SetActive(true);
         Dialogue.SetActive(false);
-        gameController.ResumeGame();
+        GameController.ResumeGame();
     }
-
-
-
-
-
 
     public void SetHealth(int health)
     {
@@ -114,6 +110,18 @@ public class PlayerGUI : MonoBehaviour
         lastEnemyHealtBarTarget = enemy;
         EnemyHealthBarRoot.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(enemy.transform.position);
         EnemyHealthBar.fillAmount = health01;
+    }
+
+    public void SetInventory(bool isActive)
+    {
+       InventoryRoot.SetActive(isActive);
+
+        Camera main = Camera.main;
+
+        Rect cameraRect = main.rect;
+        cameraRect.x = isActive ? 0.5f : 0f;
+        main.rect = cameraRect;
+        
     }
 
     public void Update()

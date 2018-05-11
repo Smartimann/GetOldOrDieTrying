@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 4e4b508f4b3fe5144900946c4c6c9f8a
-timeCreated: 1526025578
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -61,7 +59,12 @@ ModelImporter:
     4300016: UnterMantel
     4300018: Kapuze
     4300020: Hair
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 56ed418b1b173df4bb632053a2fd93eb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -80,6 +83,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

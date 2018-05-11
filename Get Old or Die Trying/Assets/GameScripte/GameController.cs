@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameController")]
+public static class GameController {
 
-public class GameController : ScriptableObject {
-
-    public void PauseGame()
+    public static void PauseGame()
     {
         Time.timeScale = 0;
     }
 
-    public void ResumeGame()
+    public static void ResumeGame()
     {
         Time.timeScale = 1;
     }
