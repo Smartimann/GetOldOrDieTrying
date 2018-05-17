@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 public class PlayerGUI : MonoBehaviour
 {
+    public static PlayerGUI Instance;
+
     private PlayerController playerController;
 
     public GameObject AbilityBarBase;
     private Toggle[] _abilityBarToggles;
     public Image HealthBar, ManaBar, RipImage;
-    public Image Ability1Image, Ability2Image;
+    public Image Ability0Image, Ability1Image;
     public GameObject EnemyHealthBarRoot;
     [SerializeField] private GameObject lastEnemyHealtBarTarget;
     public Image EnemyHealthBar;
@@ -20,6 +23,16 @@ public class PlayerGUI : MonoBehaviour
 
     public GameObject InventoryRoot;
 
+    public AbilityButton[] AbilityButtons;
+    private void Awake()
+    {
+        Instance = this;
+        AbilityButtons = GetComponentsInChildren<AbilityButton>();
+        for (int i = 0; i < AbilityButtons.Length; i++)
+        {
+            AbilityButtons[i].index = i;
+        }
+    }
 
     private void Start()
     {
@@ -62,14 +75,14 @@ public class PlayerGUI : MonoBehaviour
         ManaBar.fillAmount = (float)Mana / 100f;
     }
 
-    public void SetAbility1Cooldown(float cooldown01)
+    public void SetAbilityCooldown(int index, float cooldown)
     {
-        Ability1Image.fillAmount = cooldown01;
+        AbilityButtons[index].SetCooldown01(cooldown);
     }
 
-    public void SetAbility2Cooldown(float cooldown01)
+    public void SetAbilityIcon(int index, Sprite icon)
     {
-        Ability2Image.fillAmount = cooldown01;
+        AbilityButtons[index].SetIcon(icon);
     }
 
     private void OnEnable()
@@ -85,15 +98,16 @@ public class PlayerGUI : MonoBehaviour
         _allowActiveAbilityIndexChangeByButtons = false;
         for (int i = 0; i < _abilityBarToggles.Length; i++)
         {
-            _abilityBarToggles[i].isOn = (i + 1) == index;
+            _abilityBarToggles[i].isOn = i == index;
         }
         _allowActiveAbilityIndexChangeByButtons = true;
     }
+
     public void GetButton1(bool state)
     {
         if (state && _allowActiveAbilityIndexChangeByButtons)
         {
-            playerController.aBase.AbilityActiveIndex = 1;
+            playerController.AbilityActiveIndex = 1;
         }
     }
 
@@ -101,7 +115,7 @@ public class PlayerGUI : MonoBehaviour
     {
         if (state && _allowActiveAbilityIndexChangeByButtons)
         {
-            playerController.aBase.AbilityActiveIndex = 2;
+            playerController.AbilityActiveIndex = 2;
         }
     }
 
@@ -126,6 +140,12 @@ public class PlayerGUI : MonoBehaviour
 
     public void Update()
     {
+        UpdateEnemyHealthBar();
+        UpdateAbilityGUI();
+    }
+
+    void UpdateEnemyHealthBar()
+    {
         if (lastEnemyHealtBarTarget != null)
         {
             EnemyHealthBarRoot.SetActive(true);
@@ -136,8 +156,17 @@ public class PlayerGUI : MonoBehaviour
         {
             EnemyHealthBarRoot.SetActive(false);
         }
-       
     }
 
+    void UpdateAbilityGUI()
+    {
+        var abilities = playerController.Abilities;
+        for (int i = 0; i < playerController.Abilities.Length; i++)
+        {
+            SetAbilityCooldown(i, abilities[i].GetCooldown01());
+            SetAbilityIcon(i, abilities[i].GetIcon());
+        }
 
+
+    }
 }

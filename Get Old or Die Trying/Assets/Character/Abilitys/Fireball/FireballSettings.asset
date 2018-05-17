@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b4332e6be2ed84cb7acce99936f1bc, type: 3}
+  m_Name: FireballSettings
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: bf76e024c071f564b904d969859f1cff, type: 3}
+  Cooldown: 1
+  FireballPrefab: {fileID: 1160535582878464, guid: fb1e9238502d8744a942fce150582387,
+    type: 2}
+  Damage: 8
