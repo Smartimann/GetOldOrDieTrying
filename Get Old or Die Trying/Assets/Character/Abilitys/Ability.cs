@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public abstract class Ability : MonoBehaviour
 {
+    public int TotalUses = 0;
     public abstract Sprite GetIcon();
 
     public abstract void Execute(Character caster);

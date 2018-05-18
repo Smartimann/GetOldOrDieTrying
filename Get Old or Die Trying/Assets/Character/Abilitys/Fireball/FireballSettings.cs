@@ -7,4 +7,5 @@ public class FireballSettings : AbilitySettings
 {
     public GameObject FireballPrefab;
     public int Damage;
+    public float Speed;
 }

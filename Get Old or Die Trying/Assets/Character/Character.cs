@@ -10,19 +10,21 @@ using UnityEngine.AI;
 public abstract class Character : MonoBehaviour
 {
     public CharacterSheet CharacterSheet;
-    [SerializeField] protected int Health, Mana;
+    [SerializeField] public int Health, Mana;
 
     [SerializeField] protected MeshRenderer MeshRenderer;
-    [SerializeField] protected NavMeshAgent NavMeshAgent;
-    [SerializeField] protected Color OriginalMaterialColor;
+    [SerializeField, HideInInspector] protected NavMeshAgent NavMeshAgent;
+    [SerializeField, HideInInspector] protected Color OriginalMaterialColor;
     private float _lastTimeAddMana;
     protected bool IsDeadSequencePlayed = false;
 
-    public Vector3 casterTarget;
+    [HideInInspector] public Vector3 casterTarget;
     protected void OnEnable()
     {
         Health = CharacterSheet.Health;
         Mana = CharacterSheet.Mana;
+
+        NavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     protected void Update()

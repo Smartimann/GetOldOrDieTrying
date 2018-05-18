@@ -6,15 +6,13 @@ using UnityEngine.AI;
 
 public class PlayerController : Character
 {
-
-    [SerializeField, HideInInspector] private NavMeshAgent navMeshAgent;
+    public PlayerSheet PlayerSheet;
     [SerializeField, HideInInspector] private PlayerGUI playerGui;
-    [SerializeField, HideInInspector] private MeshRenderer meshRenderer;
     [SerializeField] private LineRenderer lineRenderer;
 
     public LayerMask LayerMask;
 
-
+    public int Age;
     /*-------------------------------------------
      * ----This Area defines The Players Stat----
      * -----------------------------------------*/
@@ -25,11 +23,12 @@ public class PlayerController : Character
     // Use this for initialization
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
         playerGui = FindObjectOfType<PlayerGUI>();
-        meshRenderer = GetComponent<MeshRenderer>();
         Abilities = GetComponents<Ability>();
+        Age = PlayerSheet.Age;
     }
+
+
 
     // Update is called once per frame
 
@@ -48,9 +47,6 @@ public class PlayerController : Character
         {
 
         }
-
-        playerGui.SetMana(Mana);
-        playerGui.SetHealth(Health);
 
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -118,10 +114,10 @@ public class PlayerController : Character
             }
             else
             {
-                navMeshAgent.destination = hit.point;
+                NavMeshAgent.destination = hit.point;
 
-                lineRenderer.positionCount = navMeshAgent.path.corners.Length;
-                lineRenderer.SetPositions(navMeshAgent.path.corners);
+                lineRenderer.positionCount = NavMeshAgent.path.corners.Length;
+                lineRenderer.SetPositions(NavMeshAgent.path.corners);
                 //if (hit.collider.gameObject.tag == "Floor")
                 //{
                 //    if (clickMarkers[0] != null) //TODO: instantiate once

@@ -23,11 +23,13 @@ public class PlayerGUI : MonoBehaviour
 
     public GameObject InventoryRoot;
 
+    public Text AgeText;
     public AbilityButton[] AbilityButtons;
     private void Awake()
     {
         Instance = this;
         AbilityButtons = GetComponentsInChildren<AbilityButton>();
+        // setup index for abilitybuttons. the index follows the order they appear in the gui
         for (int i = 0; i < AbilityButtons.Length; i++)
         {
             AbilityButtons[i].index = i;
@@ -60,30 +62,7 @@ public class PlayerGUI : MonoBehaviour
         GameController.ResumeGame();
     }
 
-    public void SetHealth(int health)
-    {
-        HealthBar.fillAmount =  (float) health / 100f;
-        if (health <= 0)
-        {
-            RipImage.enabled = true;
-        }
-        
-    }
 
-    public void SetMana(int Mana)
-    {
-        ManaBar.fillAmount = (float)Mana / 100f;
-    }
-
-    public void SetAbilityCooldown(int index, float cooldown)
-    {
-        AbilityButtons[index].SetCooldown01(cooldown);
-    }
-
-    public void SetAbilityIcon(int index, Sprite icon)
-    {
-        AbilityButtons[index].SetIcon(icon);
-    }
 
     private void OnEnable()
     {
@@ -142,6 +121,7 @@ public class PlayerGUI : MonoBehaviour
     {
         UpdateEnemyHealthBar();
         UpdateAbilityGUI();
+        UpdatePlayerStats();
     }
 
     void UpdateEnemyHealthBar()
@@ -163,10 +143,24 @@ public class PlayerGUI : MonoBehaviour
         var abilities = playerController.Abilities;
         for (int i = 0; i < playerController.Abilities.Length; i++)
         {
-            SetAbilityCooldown(i, abilities[i].GetCooldown01());
-            SetAbilityIcon(i, abilities[i].GetIcon());
+            if (abilities[i] != null)
+            {
+                AbilityButtons[i].UpdateByAbility(abilities[i]);
+            }
+     
+        }
+    }
+
+    void UpdatePlayerStats()
+    {
+        HealthBar.fillAmount = (float)playerController.Health / 100f;
+        if (playerController.Health <= 0)
+        {
+            RipImage.enabled = true;
         }
 
+        ManaBar.fillAmount = (float)playerController.Mana / 100f;
 
+        AgeText.text = "Age: " + playerController.Age;
     }
 }

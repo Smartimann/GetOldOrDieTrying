@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: FireballSettings
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: bf76e024c071f564b904d969859f1cff, type: 3}
-  Cooldown: 1
+  Cooldown: 0.1
   FireballPrefab: {fileID: 1160535582878464, guid: fb1e9238502d8744a942fce150582387,
     type: 2}
-  Damage: 8
+  Damage: 0
+  Speed: 20

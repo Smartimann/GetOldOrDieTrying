@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: b87eec400777b4449b83276d94526faf
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Back_Flowers
+    100002: BackFlower_Soil
+    100004: Backwindow
+    100006: BackWindow_Glass
+    100008: BackWindow_Glass_Balken
+    100010: BackWindowbox
+    100012: Door
+    100014: Flower_Soil
+    100016: Flowers
+    100018: //RootNode
+    100020: Roof
+    100022: Window
+    100024: Window_Glass
+    100026: Window_Glass_Balken
+    100028: Windowbox
+    400000: Back_Flowers
+    400002: BackFlower_Soil
+    400004: Backwindow
+    400006: BackWindow_Glass
+    400008: BackWindow_Glass_Balken
+    400010: BackWindowbox
+    400012: Door
+    400014: Flower_Soil
+    400016: Flowers
+    400018: //RootNode
+    400020: Roof
+    400022: Window
+    400024: Window_Glass
+    400026: Window_Glass_Balken
+    400028: Windowbox
+    2100000: Material
+    2100002: No Name
+    2300000: Back_Flowers
+    2300002: BackFlower_Soil
+    2300004: Backwindow
+    2300006: BackWindow_Glass
+    2300008: BackWindow_Glass_Balken
+    2300010: BackWindowbox
+    2300012: Door
+    2300014: Flower_Soil
+    2300016: Flowers
+    2300018: //RootNode
+    2300020: Roof
+    2300022: Window
+    2300024: Window_Glass
+    2300026: Window_Glass_Balken
+    2300028: Windowbox
+    3300000: Back_Flowers
+    3300002: BackFlower_Soil
+    3300004: Backwindow
+    3300006: BackWindow_Glass
+    3300008: BackWindow_Glass_Balken
+    3300010: BackWindowbox
+    3300012: Door
+    3300014: Flower_Soil
+    3300016: Flowers
+    3300018: //RootNode
+    3300020: Roof
+    3300022: Window
+    3300024: Window_Glass
+    3300026: Window_Glass_Balken
+    3300028: Windowbox
+    4300000: House
+    4300002: Roof
+    4300004: BackWindowbox
+    4300006: BackFlower_Soil
+    4300008: Back_Flowers
+    4300010: Backwindow
+    4300012: BackWindow_Glass_Balken
+    4300014: BackWindow_Glass
+    4300016: Windowbox
+    4300018: Flowers
+    4300020: Flower_Soil
+    4300022: Window
+    4300024: Window_Glass
+    4300026: Window_Glass_Balken
+    4300028: Door
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

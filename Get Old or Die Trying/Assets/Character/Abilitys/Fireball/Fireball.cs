@@ -17,18 +17,19 @@ public class Fireball : Ability
         Vector3 directionToHit = vectorToHit;
         directionToHit.y = 0; // dont allow projectiles to travel into the ground
         newFireball.transform.position = caster.transform.position + directionToHit.normalized;
-        newFireball.GetComponent<FireballProjectile>().Direction = directionToHit.normalized;
-        newFireball.GetComponent<FireballProjectile>().damage = Settings.Damage;
-        //Mana -= 5;
+        var projectile = newFireball.GetComponent<FireballProjectile>();
+        projectile.Direction = directionToHit.normalized;
+        projectile.damage = Settings.Damage;
 
-        //raising Counters
-        //abilityCounter += 1;
-        //intelligenceCounter += 1;
-        //alienPowerCounter += 1;
+        bool isCasterPlayer = caster.GetType() == typeof(PlayerController);
+        if (isCasterPlayer)
+        {
+            projectile.Velocity = Settings.Speed / Mathf.Max(TotalUses, 1);
 
-        //DecayCalculation();
+        }
+
+        TotalUses++;
         LastTimeUsed = Time.time;
-
     }
 
     public override Sprite GetIcon()
