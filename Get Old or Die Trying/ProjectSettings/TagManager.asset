@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - ClickMarker
+  - Kill-Skeletons
   layers:
   - Default
   - TransparentFX

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GoodNPCController : MonoBehaviour {
     public PlayerGUI playerGUI;
-	// Use this for initialization
+    public AbstractQuest KillSkeletons;// Use this for initialization
 	void Start () {
+        
         playerGUI = FindObjectOfType<PlayerGUI>();
     }
 
@@ -17,6 +18,7 @@ public class GoodNPCController : MonoBehaviour {
     public void ShowDialogueText()
     {
         playerGUI.ShowDialogue();
+        KillSkeletons.StartQuest();
     }
 
     

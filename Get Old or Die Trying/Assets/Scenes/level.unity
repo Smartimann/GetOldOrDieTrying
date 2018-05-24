@@ -412,6 +412,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1493615712422834, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
+      propertyPath: m_TagString
+      value: Kill-Skeletons
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
   m_IsPrefabParent: 0
@@ -9231,6 +9235,10 @@ Prefab:
       propertyPath: m_Name
       value: skeleton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1493615712422834, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
+      propertyPath: m_TagString
+      value: Kill-Skeletons
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
   m_IsPrefabParent: 0
@@ -13368,6 +13376,10 @@ Prefab:
     - target: {fileID: 1493615712422834, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
       propertyPath: m_Name
       value: skeleton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493615712422834, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
+      propertyPath: m_TagString
+      value: Kill-Skeletons
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a754e9d55f46b1a4290f80e34e148a93, type: 2}
