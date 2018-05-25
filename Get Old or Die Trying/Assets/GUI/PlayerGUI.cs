@@ -46,11 +46,13 @@ public class PlayerGUI : MonoBehaviour
     }
 
     //In dieses System könnte auch die Pausierung eingebaut werden
-    public void ShowDialogue()
+    public void ShowDialogue(string text)
     {
         
         PlayerUI.SetActive(false);
         Dialogue.SetActive(true);
+        Dialogue.GetComponentInChildren<Text>().text = text;
+
         GameController.PauseGame();
 
     }

@@ -18,6 +18,7 @@ public class PlayerController : Character
      * -----------------------------------------*/
 
     public bool PlayedDeadSequence = false;
+    public GameObject ClickMarker;
 
     public Ability[] Abilities;
     // Use this for initialization
@@ -26,6 +27,7 @@ public class PlayerController : Character
         playerGui = FindObjectOfType<PlayerGUI>();
         Abilities = GetComponents<Ability>();
         Age = PlayerSheet.Age;
+
     }
 
 
@@ -118,16 +120,14 @@ public class PlayerController : Character
 
                 lineRenderer.positionCount = NavMeshAgent.path.corners.Length;
                 lineRenderer.SetPositions(NavMeshAgent.path.corners);
-                //if (hit.collider.gameObject.tag == "Floor")
-                //{
-                //    if (clickMarkers[0] != null) //TODO: instantiate once
-                //    {
-                //        Destroy(clickMarkers[0]);
-                //    }
-                //    clickMarkers[0] = Instantiate(ClickMarker, hit.point, ClickMarker.transform.rotation);
-                //    Debug.Log("Marker");
+                if (hit.collider.gameObject.tag == "Floor")
+                {
 
-                //}
+                    ClickMarker.transform.position = hit.point;
+                   
+                    Debug.Log("Marker");
+
+                }
 
             }
 

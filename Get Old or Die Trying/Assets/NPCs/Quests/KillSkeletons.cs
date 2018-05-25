@@ -8,7 +8,7 @@ public class KillSkeletons : AbstractQuest {
 
     public GameObject NPC;
     public string QuestName = "Kill-Skeletons";
-    public string[] Text;
+    public string Text;
     public bool started;
     public bool finished;
     public Objective[] Objectives;
@@ -19,7 +19,7 @@ public class KillSkeletons : AbstractQuest {
         Objectives = GetComponentsInChildren<Objective>();
         started = false;
         finished = false;
-        Text[0] = "Hey du da. Auch wenn du ein Mensch bist. Ich bräuchte da deine Hilfe. Vielleicht hast du sie schon gesehen. Hier sind überall Skelette, kannst du die weghauen?";
+        Text = "Hey du da. Auch wenn du ein Mensch bist. Ich bräuchte da deine Hilfe. Vielleicht hast du sie schon gesehen. Hier sind überall Skelette, kannst du die weghauen?";
         
     }
 
@@ -34,15 +34,28 @@ public class KillSkeletons : AbstractQuest {
     public override void StartQuest()
     {
         started = true;
+        NPC.GetComponent<GoodNPCController>().AvailableQuest = false;
+
     }
 
     public override void CheckIfFullfilled()
     {
-
-
         finished = Objectives.All(x => x.ObjectiveCompleted);
-       
     }
 
- 
+    public override bool GetStatus()
+    {
+        return finished;
+    }
+
+    public override string GetName()
+    {
+        return QuestName;
+    }
+
+    public override string GetText()
+    {
+        return Text;
+    }
+
 }
