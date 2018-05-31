@@ -14,8 +14,9 @@ public class GoodNPCController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		QuestMarker.SetActive(AvailableQuest);        
-	}
+		QuestMarker.SetActive(AvailableQuest);
+        
+    }
 
     public void ShowDialogueText()
     {
