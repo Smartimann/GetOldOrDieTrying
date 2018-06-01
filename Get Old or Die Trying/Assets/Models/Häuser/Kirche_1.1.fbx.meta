@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: d460c8a77258b88408fab0ad9a5ce2a0
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Dach
+    100002: Fensterrahmen
+    100004: Fensterscheiben
+    100006: //RootNode
+    100008: Tuer
+    100010: Tuerrahmen
+    100012: Turm
+    100014: Turmdach
+    100016: Turmfensterrahmen
+    100018: Turmfensterscheibe
+    400000: Dach
+    400002: Fensterrahmen
+    400004: Fensterscheiben
+    400006: //RootNode
+    400008: Tuer
+    400010: Tuerrahmen
+    400012: Turm
+    400014: Turmdach
+    400016: Turmfensterrahmen
+    400018: Turmfensterscheibe
+    2100000: No Name
+    2300000: Dach
+    2300002: Fensterrahmen
+    2300004: Fensterscheiben
+    2300006: //RootNode
+    2300008: Tuer
+    2300010: Tuerrahmen
+    2300012: Turm
+    2300014: Turmdach
+    2300016: Turmfensterrahmen
+    2300018: Turmfensterscheibe
+    3300000: Dach
+    3300002: Fensterrahmen
+    3300004: Fensterscheiben
+    3300006: //RootNode
+    3300008: Tuer
+    3300010: Tuerrahmen
+    3300012: Turm
+    3300014: Turmdach
+    3300016: Turmfensterrahmen
+    3300018: Turmfensterscheibe
+    4300000: Kirche
+    4300002: Turm
+    4300004: Turmfensterscheibe
+    4300006: Turmfensterrahmen
+    4300008: Turmdach
+    4300010: Tuerrahmen
+    4300012: Tuer
+    4300014: Fensterrahmen
+    4300016: Fensterscheiben
+    4300018: Dach
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

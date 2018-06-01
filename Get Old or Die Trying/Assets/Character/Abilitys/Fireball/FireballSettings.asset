@@ -15,5 +15,5 @@ MonoBehaviour:
   Cooldown: 0.1
   FireballPrefab: {fileID: 1160535582878464, guid: fb1e9238502d8744a942fce150582387,
     type: 2}
-  Damage: 0
+  Damage: 14
   Speed: 20
