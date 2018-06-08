@@ -80,6 +80,21 @@ ModelImporter:
     4300024: Window_Glass
     4300026: Window_Glass_Balken
     4300028: Door
+    6400000: Back_Flowers
+    6400002: BackFlower_Soil
+    6400004: Backwindow
+    6400006: BackWindow_Glass
+    6400008: BackWindow_Glass_Balken
+    6400010: BackWindowbox
+    6400012: Door
+    6400014: Flower_Soil
+    6400016: Flowers
+    6400018: //RootNode
+    6400020: Roof
+    6400022: Window
+    6400024: Window_Glass
+    6400026: Window_Glass_Balken
+    6400028: Windowbox
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

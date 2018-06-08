@@ -17,6 +17,8 @@ ModelImporter:
     3300002: Cylinder
     4300000: Cylinder
     4300002: Cube
+    6400000: Cube
+    6400002: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1

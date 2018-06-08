@@ -25,6 +25,10 @@ ModelImporter:
     4300002: Window
     4300004: Antenne
     4300006: Tent_Door
+    6400000: Antenne
+    6400002: //RootNode
+    6400004: Tent_Door
+    6400006: Window
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:

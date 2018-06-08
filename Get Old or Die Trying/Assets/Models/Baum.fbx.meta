@@ -24,6 +24,8 @@ ModelImporter:
     3300004: Cylinder
     4300000: Cube
     4300002: Cylinder
+    6400000: Cube
+    6400002: Cylinder
     10800000: Lamp
   externalObjects: {}
   materials:

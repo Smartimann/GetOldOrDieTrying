@@ -22,6 +22,7 @@ public class CameraTargetController : MonoBehaviour {
         transform.position = pos;
 
         Vector3 screenPos = camera.WorldToScreenPoint(pos);
+        
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
         Debug.Log(screenPos);

@@ -39,6 +39,13 @@ ModelImporter:
     4300008: Tuer
     4300010: Griff
     4300012: Dach
+    6400000: Dach
+    6400002: Fensterrahmen
+    6400004: Fensterscheiben
+    6400006: Griff
+    6400008: //RootNode
+    6400010: Tuer
+    6400012: "T\xFCrrahmen"
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
