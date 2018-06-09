@@ -54,6 +54,16 @@ ModelImporter:
     4300014: Fensterrahmen
     4300016: Fensterscheiben
     4300018: Dach
+    6400000: Dach
+    6400002: Fensterrahmen
+    6400004: Fensterscheiben
+    6400006: //RootNode
+    6400008: Tuer
+    6400010: Tuerrahmen
+    6400012: Turm
+    6400014: Turmdach
+    6400016: Turmfensterrahmen
+    6400018: Turmfensterscheibe
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
