@@ -9,18 +9,18 @@ public class AbilityButton : MonoBehaviour
 {
     public Image ForegroundImage, BackgroundImage, ButtonBackground;
     public Text TotalUsesText;
-   [HideInInspector] public int index = 0;
+    [HideInInspector] public int index = 0;
 
-    public void UpdateByAbility(Ability ability)
+    public void UpdateByGUI(int lastIndex)
     {
+        Ability ability = GetComponent<Ability>();
         float cooldown01 = ability.GetCooldown01();
         Sprite icon = ability.GetIcon();
-        int TotalUses = ability.TotalUses;
+        int totalUses = ability.TotalUses;
         ForegroundImage.fillAmount = cooldown01;
         if (cooldown01 < 1f)
         {
             ButtonBackground.color = Color.gray;
-
         }
         else
         {
@@ -30,7 +30,7 @@ public class AbilityButton : MonoBehaviour
         ForegroundImage.sprite = icon;
         BackgroundImage.sprite = icon;
 
-        TotalUsesText.text = TotalUses.ToString();
+        TotalUsesText.text = totalUses.ToString();
     }
     public void SetActive()
     {

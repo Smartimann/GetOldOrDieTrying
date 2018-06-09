@@ -84,21 +84,7 @@ public class PlayerGUI : MonoBehaviour
         _allowActiveAbilityIndexChangeByButtons = true;
     }
 
-    public void GetButton1(bool state)
-    {
-        if (state && _allowActiveAbilityIndexChangeByButtons)
-        {
-            playerController.AbilityActiveIndex = 1;
-        }
-    }
 
-    public void GetButton2(bool state)
-    {
-        if (state && _allowActiveAbilityIndexChangeByButtons)
-        {
-            playerController.AbilityActiveIndex = 2;
-        }
-    }
 
     public void SetEnemyHealthBar(GameObject enemy, float health01)
     {
@@ -142,14 +128,10 @@ public class PlayerGUI : MonoBehaviour
 
     void UpdateAbilityGUI()
     {
-        var abilities = playerController.Abilities;
-        for (int i = 0; i < playerController.Abilities.Length; i++)
+        var abilities = AbilityBarBase.GetComponentsInChildren<AbilityButton>();
+        for (int i = 0; i < abilities.Length; i++)
         {
-            if (abilities[i] != null)
-            {
-                AbilityButtons[i].UpdateByAbility(abilities[i]);
-            }
-     
+            abilities[i].UpdateByGUI(i);
         }
     }
 

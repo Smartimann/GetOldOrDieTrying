@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 using cakeslice;
-
+using System.ComponentModel.Design;
 public class PlayerController : Character
 {
     public PlayerSheet PlayerSheet;
@@ -31,16 +31,13 @@ public class PlayerController : Character
 
     }
 
-
-
+    
     // Update is called once per frame
 
     protected override void OnUpdate()
     {
         if (Health > 0)
         {
-            UpdateActiveAbility();
-
             if (Input.GetMouseButton(0) && !_isInventoryVisible)
             {
                 UpdateInput();
@@ -62,39 +59,6 @@ public class PlayerController : Character
         }
     }
 
-    public int AbilityActiveIndex;
-
-    void UpdateActiveAbility()
-    {
-        bool abilityIndexChanged = false;
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            AbilityActiveIndex = 0;
-            abilityIndexChanged = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            AbilityActiveIndex = 1;
-            abilityIndexChanged = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            AbilityActiveIndex = 2;
-            abilityIndexChanged = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            AbilityActiveIndex = 3;
-            abilityIndexChanged = true;
-        }
-
-        if (abilityIndexChanged)
-        {
-            playerGui.SetActiveAbility(AbilityActiveIndex);
-        }
-
-    }
     public Transform CasterTransform;
     void UpdateInput()
     {
@@ -147,9 +111,9 @@ public class PlayerController : Character
 
     void ExecuteCurrentAbility()
     {
-        if (AbilityActiveIndex < Abilities.Length && Abilities[AbilityActiveIndex])
+        if (AbilityExecuter.SelectedAbility != null)
         {
-            Abilities[AbilityActiveIndex].Execute(this);
+            AbilityExecuter.SelectedAbility.Execute(this);
         }
     }
 

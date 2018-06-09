@@ -13,9 +13,7 @@ public class SwordAbility : Ability
             return;
 
         Matrix4x4 localToWorldMatrix = Matrix4x4.identity;
-        ;// caster.transform.localToWorldMatrix;
 
-       
         Vector3 boundsMin = Settings.SwordRangeBounds.min;
         Vector3 boundsMax = Settings.SwordRangeBounds.max;
         Bounds worldSpaceBounds = new Bounds();
