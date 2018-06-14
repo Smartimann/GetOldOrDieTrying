@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5732c990c68f3e4caf081ddcb07be55, type: 3}
   m_Name: SwordAbilitySettings
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 78788f644561d36489d6c48ffe606105, type: 3}
+  Icon: {fileID: 21300000, guid: 4494f42393371464daf69140d9f9baad, type: 3}
   Cooldown: 1
   SwordRangeBounds:
     m_Center: {x: 0, y: 0, z: 1.11}

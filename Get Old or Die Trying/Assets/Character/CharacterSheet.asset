@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fb1a6b796e3d847a83cc5011d808f9, type: 3}
   m_Name: CharacterSheet
   m_EditorClassIdentifier: 
-  Health: 122111212
+  Health: 100
   Mana: 100
   ManaRefillRate: 0.1
