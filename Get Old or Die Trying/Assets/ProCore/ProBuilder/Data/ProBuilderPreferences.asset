@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Bool_keys:
   - pbShowDetail
+  - pbExtrudeAsGroup
+  - pbManifoldEdgeExtrusion
   m_Int_keys:
   - pbDefaultEditLevel
   - pbDefaultSelectionMode
@@ -22,13 +24,15 @@ MonoBehaviour:
   m_Float_keys:
   - pbEditorScroll.x
   - pbEditorScroll.y
+  - pbExtrudeDistance
   m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 01
-  m_Int_values: 0100000002000000000000000000000001000000
+  m_Bool_values: 010100
+  m_Int_values: 0000000000000000000000000000000001000000
   m_Float_values:
   - 0
+  - 24
   - 0
   m_String_values: []
   m_Color_values: []
