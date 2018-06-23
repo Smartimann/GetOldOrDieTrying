@@ -9,8 +9,8 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         AudioSource audio = GetComponent<AudioSource>();
-        wind.Play();
-        wind.Play(44100);
+        audio.Play();
+        audio.Play(44100);
 
     }
 
