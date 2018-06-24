@@ -75,9 +75,14 @@ public class PlayerController : Character
             {
                 ExecuteCurrentAbility();
             }
+            //Ich weiss Vererbung wäre hier schöner gewesen aber es hat sich nicht gelohnt da wieder so viel umzubasteln
             else if (hit.collider.GetComponent<GoodNPCController>() != null)
             {
                 Talk(hit, CasterTransform);
+            }
+            else if (hit.collider.GetComponent<ShopNPC>() != null)
+            {
+                TalkToBuy(hit, CasterTransform);
             }
             else
             {
@@ -102,11 +107,17 @@ public class PlayerController : Character
         }
 
     }
-
+    //Anlabern Questgeber / NPC
     public void Talk(RaycastHit hit, Transform casterTransform)
     {
         hit.collider.GetComponent<GoodNPCController>().ShowDialogueText();
 
+    }
+
+    //Anlabern Shop
+    public void TalkToBuy(RaycastHit hit, Transform casterTransform)
+    {
+        hit.collider.GetComponent<ShopNPC>().ShowDialogueText();
     }
 
     void ExecuteCurrentAbility()

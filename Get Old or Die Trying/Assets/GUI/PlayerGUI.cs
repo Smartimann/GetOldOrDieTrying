@@ -19,12 +19,14 @@ public class PlayerGUI : MonoBehaviour
 
     public GameObject PlayerUI;
     public GameObject Dialogue;
-    public Button quitButton;
-
+    public Button DialogueQuitButton;
+    public Button ShopQuitButton;
     public GameObject InventoryRoot;
 
     public Text AgeText;
     public AbilityButton[] AbilityButtons;
+
+    public GameObject Shop;
     private void Awake()
     {
         Instance = this;
@@ -38,16 +40,18 @@ public class PlayerGUI : MonoBehaviour
 
     private void Start()
     {
-
-        quitButton.onClick.AddListener(HideDialogue);
+        ShopQuitButton.onClick.AddListener(HideStore);
+        DialogueQuitButton.onClick.AddListener(HideDialogue);
         PlayerUI.SetActive(true);
         Dialogue.SetActive(false);
+        Shop.SetActive(false);
 
     }
 
     //In dieses System könnte auch die Pausierung eingebaut werden
     public void ShowDialogue(string text)
     {
+        
         
         PlayerUI.SetActive(false);
         Dialogue.SetActive(true);
@@ -64,7 +68,18 @@ public class PlayerGUI : MonoBehaviour
         GameController.ResumeGame();
     }
 
+    //Funktionen werden im Script ShopNpc aufgerufen
+    public void ShowStore()
+    {
+        Shop.SetActive(true);
+        PlayerUI.SetActive(false);
+    }
 
+    public void HideStore()
+    {
+        Shop.SetActive(false);
+        PlayerUI.SetActive(true);
+    }
 
     private void OnEnable()
     {
