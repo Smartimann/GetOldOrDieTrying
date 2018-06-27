@@ -21,6 +21,8 @@ public class PlayerGUI : MonoBehaviour
     public GameObject Dialogue;
     public Button DialogueQuitButton;
     public Button ShopQuitButton;
+    //ShopButtons
+
     public GameObject InventoryRoot;
 
     public Text AgeText;
@@ -42,6 +44,9 @@ public class PlayerGUI : MonoBehaviour
     {
         ShopQuitButton.onClick.AddListener(HideStore);
         DialogueQuitButton.onClick.AddListener(HideDialogue);
+
+        //ShopButtons
+
         PlayerUI.SetActive(true);
         Dialogue.SetActive(false);
         Shop.SetActive(false);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fireball : Ability
 {
     public FireballSettings Settings;
-    public override void Execute(Character caster)
+    public override void Execute(Character caster, RaycastHit hit)
     {
         if (TimeSinceLastUse < Settings.Cooldown)
             return;

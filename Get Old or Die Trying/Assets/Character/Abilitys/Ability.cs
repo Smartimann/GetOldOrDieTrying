@@ -8,7 +8,7 @@ public abstract class Ability : MonoBehaviour
     public int TotalUses = 0;
     public abstract Sprite GetIcon();
 
-    public abstract void Execute(Character caster);
+    public abstract void Execute(Character caster, RaycastHit hit);
 
     // shared cooldown code
     protected abstract float GetCooldown();

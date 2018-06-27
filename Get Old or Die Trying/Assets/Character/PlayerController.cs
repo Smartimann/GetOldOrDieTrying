@@ -13,6 +13,7 @@ public class PlayerController : Character
 
     public LayerMask LayerMask;
 
+
     public int Age;
     /*-------------------------------------------
      * ----This Area defines The Players Stat----
@@ -22,9 +23,17 @@ public class PlayerController : Character
     public GameObject ClickMarker;
 
     public Ability[] Abilities;
-    // Use this for initialization
+
+    // Animation
+    public Animator anim;
+    public GameObject PlayerModel;
+    private Transform lastDestionation;
+    private bool hitting = false;
+    private float atHit;
+
     void Start()
-    {
+    { 
+        anim = PlayerModel.GetComponent<Animator>();
         playerGui = FindObjectOfType<PlayerGUI>();
         Abilities = GetComponents<Ability>();
         Age = PlayerSheet.Age;
@@ -38,6 +47,18 @@ public class PlayerController : Character
     {
         if (Health > 0)
         {
+            if (hitting && Time.time > atHit)
+            {
+                hitting = false;
+                anim.SetBool("isAttacking", false);
+            }
+            float dist = NavMeshAgent.remainingDistance;
+            if (NavMeshAgent.remainingDistance == 0 && NavMeshAgent.velocity == new Vector3(0,0,0))
+            {
+                Debug.Log("Finished");
+                anim.SetBool("isRunning", false);
+            }
+
             if (Input.GetMouseButton(0) && !_isInventoryVisible)
             {
                 UpdateInput();
@@ -71,10 +92,17 @@ public class PlayerController : Character
 
             Debug.Log("Object hit: " + hit.collider.gameObject.name);
             //Interacting with enemy
-            if (hit.collider.GetComponent<NPCController>() != null)
+
+            bool OneKeyIsPressed = Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Alpha4);
+            if (hit.collider.GetComponent<NPCController>() != null || OneKeyIsPressed)
             {
-                ExecuteCurrentAbility();
-            }
+                anim.SetBool("isAttacking", true);
+                atHit = Time.time + 1f;
+                hitting = true;
+                ExecuteCurrentAbility(hit);
+               
+
+            } 
             //Ich weiss Vererbung wäre hier schöner gewesen aber es hat sich nicht gelohnt da wieder so viel umzubasteln
             else if (hit.collider.GetComponent<GoodNPCController>() != null)
             {
@@ -86,7 +114,10 @@ public class PlayerController : Character
             }
             else
             {
+                anim.SetBool("isRunning", true);
                 NavMeshAgent.destination = hit.point;
+                //lastDestionation = hit.point;
+
 
                 lineRenderer.positionCount = NavMeshAgent.path.corners.Length;
                 lineRenderer.SetPositions(NavMeshAgent.path.corners);
@@ -120,11 +151,11 @@ public class PlayerController : Character
         hit.collider.GetComponent<ShopNPC>().ShowDialogueText();
     }
 
-    void ExecuteCurrentAbility()
+    void ExecuteCurrentAbility(RaycastHit hit)
     {
         if (AbilityExecuter.SelectedAbility != null)
         {
-            AbilityExecuter.SelectedAbility.Execute(this);
+            AbilityExecuter.SelectedAbility.Execute(this,hit);
         }
     }
 

@@ -7,7 +7,7 @@ public class SwordAbility : Ability
 {
     public SwordAbilitySettings Settings;
 
-    public override void Execute(Character caster)
+    public override void Execute(Character caster, RaycastHit hit)
     {
         if (TimeSinceLastUse < Settings.Cooldown)
             return;

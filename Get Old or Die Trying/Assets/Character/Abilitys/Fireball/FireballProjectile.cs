@@ -27,6 +27,7 @@ public class FireballProjectile : MonoBehaviour
         if (npcController != null)
         {
             npcController.Damage(this.damage);
+            Debug.Log(other.gameObject);
 
         }
 
