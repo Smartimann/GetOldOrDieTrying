@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b02809945b1e14b8abd47e14e5b2c3, type: 3}
   m_Name: RoteBeeteSettings
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: a00b0cc28e440d04f8beb0e442761762, type: 3}
+  Icon: {fileID: 21300000, guid: 9b6c1d06ac125ac4b9dc426970487628, type: 3}
   Cooldown: 10
-  Regeneration: 20
-  Count: -25
+  Regeneration: 2
+  Count: -38

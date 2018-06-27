@@ -17,3 +17,4 @@ MonoBehaviour:
     type: 2}
   Damage: 14
   Speed: 20
+  ManaCost: 5

@@ -7,7 +7,7 @@ public class Fireball : Ability
     public FireballSettings Settings;
     public override void Execute(Character caster, RaycastHit hit)
     {
-        if (TimeSinceLastUse < Settings.Cooldown)
+        if (TimeSinceLastUse < Settings.Cooldown || caster.Mana == 0) 
             return;
 
         Transform casterTransform = caster.transform;
@@ -21,13 +21,14 @@ public class Fireball : Ability
         projectile.Direction = directionToHit.normalized;
         projectile.damage = Settings.Damage;
 
+
         bool isCasterPlayer = caster.GetType() == typeof(PlayerController);
         if (isCasterPlayer)
         {
             projectile.Velocity = Settings.Speed / Mathf.Max(TotalUses, 1);
 
         }
-
+        UseMana(caster);
         TotalUses++;
         LastTimeUsed = Time.time;
     }
@@ -40,6 +41,10 @@ public class Fireball : Ability
     protected override float GetCooldown()
     {
         return Settings.Cooldown;
+    }
+
+    private void UseMana(Character caster) {
+        caster.UseMana(Settings.ManaCost);
     }
 }
 

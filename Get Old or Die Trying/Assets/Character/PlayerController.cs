@@ -93,6 +93,7 @@ public class PlayerController : Character
             Debug.Log("Object hit: " + hit.collider.gameObject.name);
             //Interacting with enemy
 
+            //TODO: NUR EINMAL AUSFÜHREN
             bool OneKeyIsPressed = Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Alpha4);
             if (hit.collider.GetComponent<NPCController>() != null || OneKeyIsPressed)
             {
@@ -100,6 +101,7 @@ public class PlayerController : Character
                 atHit = Time.time + 1f;
                 hitting = true;
                 ExecuteCurrentAbility(hit);
+                OneKeyIsPressed = false;
                
 
             } 

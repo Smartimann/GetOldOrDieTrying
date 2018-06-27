@@ -1,16 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PowerBankSettings : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+[CreateAssetMenu(fileName = "PowerbankSettings", menuName = "Abilitys/Manatrank")]
+public class PowerBankSettings : AbilitySettings {
+	public int Count = 10;
+	public int Regeneration = 5;
 }

@@ -6,7 +6,7 @@ public class RoteBeete : Ability {
     public RoteBeeteSettings Settings;
 
     public override void Execute(Character caster, RaycastHit hit) {
-        if (TimeSinceLastUse < Settings.Cooldown)
+        if (TimeSinceLastUse < Settings.Cooldown || Settings.Count <= 0)
             return;
         
         caster.Health += Settings.Regeneration;

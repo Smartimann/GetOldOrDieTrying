@@ -9,6 +9,7 @@ public class AbilityButton : MonoBehaviour
 {
     public Image ForegroundImage, BackgroundImage, ButtonBackground;
     public Text TotalUsesText;
+
     [HideInInspector] public int index = 0;
 
     public void UpdateByGUI(int lastIndex)
@@ -31,6 +32,7 @@ public class AbilityButton : MonoBehaviour
         BackgroundImage.sprite = icon;
 
         TotalUsesText.text = totalUses.ToString();
+        
     }
     public void SetActive()
     {

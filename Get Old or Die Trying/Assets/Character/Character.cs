@@ -31,12 +31,15 @@ public abstract class Character : MonoBehaviour
     {
         if (Health > 0)
         {
-            if (Time.time - _lastTimeAddMana > CharacterSheet.ManaRefillRate)
+            if (Mana < 0) {
+                Mana = 0;
+            }
+          /*  if (Time.time - _lastTimeAddMana > CharacterSheet.ManaRefillRate)
             {
                 Mana += Mathf.RoundToInt((Time.time - _lastTimeAddMana) / CharacterSheet.ManaRefillRate);
                 Mana = Mathf.Clamp(Mana, 0, CharacterSheet.Mana);
                 _lastTimeAddMana = Time.time;
-            }
+            }*/
         }
         else
         {
@@ -68,6 +71,17 @@ public abstract class Character : MonoBehaviour
         mySequence.Append(MeshRenderer.material.DOColor(OriginalMaterialColor, 0.02f));
 
         Health -= damage;
+    }
+
+
+    public void UseMana(int cost) {
+        if (Mana > 0) {
+            Mana -= cost;    
+        } 
+    }
+
+    public int GetMana() {
+        return Mana;
     }
 
 }
