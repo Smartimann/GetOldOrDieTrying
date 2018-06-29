@@ -7,7 +7,7 @@ using cakeslice;
 using System.ComponentModel.Design;
 public class PlayerController : Character
 {
-    public PlayerSheet PlayerSheet;
+    //public PlayerSheet PlayerSheet;
     [SerializeField, HideInInspector] private PlayerGUI playerGui;
     [SerializeField] private LineRenderer lineRenderer;
 
@@ -36,11 +36,9 @@ public class PlayerController : Character
         anim = PlayerModel.GetComponent<Animator>();
         playerGui = FindObjectOfType<PlayerGUI>();
         Abilities = GetComponents<Ability>();
-        Age = PlayerSheet.Age;
+        Age = CharacterSheet.Age;
 
     }
-
-    
     // Update is called once per frame
 
     protected override void OnUpdate()
@@ -55,7 +53,7 @@ public class PlayerController : Character
             float dist = NavMeshAgent.remainingDistance;
             if (NavMeshAgent.remainingDistance == 0 && NavMeshAgent.velocity == new Vector3(0,0,0))
             {
-                Debug.Log("Finished");
+                //Debug.Log("Finished");
                 anim.SetBool("isRunning", false);
             }
 
@@ -90,7 +88,7 @@ public class PlayerController : Character
         {
             casterTarget = hit.point;
 
-            Debug.Log("Object hit: " + hit.collider.gameObject.name);
+            //Debug.Log("Object hit: " + hit.collider.gameObject.name);
             //Interacting with enemy
 
             //TODO: NUR EINMAL AUSFÜHREN
@@ -128,7 +126,7 @@ public class PlayerController : Character
 
                     ClickMarker.transform.position = hit.point;
                    
-                    Debug.Log("Marker");
+                    //Debug.Log("Marker");
 
                 }
 

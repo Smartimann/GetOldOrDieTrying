@@ -78,12 +78,16 @@ public class PlayerGUI : MonoBehaviour
     {
         Shop.SetActive(true);
         PlayerUI.SetActive(false);
+        GameController.PauseGame();
+
     }
 
     public void HideStore()
     {
         Shop.SetActive(false);
         PlayerUI.SetActive(true);
+        GameController.ResumeGame();
+
     }
 
     private void OnEnable()
@@ -158,6 +162,7 @@ public class PlayerGUI : MonoBehaviour
     void UpdatePlayerStats()
     {
         HealthBar.fillAmount = (float)playerController.Health / 100f;
+        
         if (playerController.Health <= 0)
         {
             RipImage.enabled = true;

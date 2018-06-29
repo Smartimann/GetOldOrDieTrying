@@ -25,7 +25,7 @@ public class CameraTargetController : MonoBehaviour {
         
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-        Debug.Log(screenPos);
+        //Debug.Log(screenPos);
         if(Physics.Raycast(ray, out hit, 999f, LayerMask.value))
         {
 

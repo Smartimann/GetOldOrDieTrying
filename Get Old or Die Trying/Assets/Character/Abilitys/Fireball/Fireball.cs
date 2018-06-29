@@ -19,14 +19,17 @@ public class Fireball : Ability
         newFireball.transform.position = caster.transform.position + directionToHit.normalized;
         var projectile = newFireball.GetComponent<FireballProjectile>();
         projectile.Direction = directionToHit.normalized;
-        projectile.damage = Settings.Damage;
+        projectile.damage = Settings.Damage * caster.CharacterSheet.Attack;
 
 
         bool isCasterPlayer = caster.GetType() == typeof(PlayerController);
         if (isCasterPlayer)
         {
             projectile.Velocity = Settings.Speed / Mathf.Max(TotalUses, 1);
+            //Alternativ
+            //projectile.Velocity = Settings.Speed * caster.CharacterSheet.speed;
 
+           // caster.CharacterSheet.Decay(this);
         }
         UseMana(caster);
         TotalUses++;

@@ -8,10 +8,14 @@ public class PowerBank : Ability {
 
 	public Text Count;
 	public PowerBankSettings Settings;
+
+    public void Start() {
+        Count.text = Settings.Count.ToString();
+
+    }
 	 public override void Execute(Character caster, RaycastHit hit) {
         if (TimeSinceLastUse < Settings.Cooldown || Settings.Count <= 0)
             return;
-        
         caster.Mana += Settings.Regeneration;
         Settings.Count -= 1;
 		Count.text = Settings.Count.ToString();

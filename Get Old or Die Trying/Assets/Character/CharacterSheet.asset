@@ -13,4 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Mana: 100
+  Money: 500
+  Age: 30
   ManaRefillRate: 0.1
+  Attack: 100
+  Defense: 100
+  MaxHealth: 200
+  MaxMana: 200
+  Speed: 20

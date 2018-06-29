@@ -4,7 +4,7 @@ using UnityEngine;
 using cakeslice;
 
 public class Highlighting : MonoBehaviour {
-    private Outline line;
+    public Outline line;
 
     private void Start()
     {

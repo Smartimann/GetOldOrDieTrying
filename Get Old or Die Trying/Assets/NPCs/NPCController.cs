@@ -87,6 +87,9 @@ public class NPCController : MonoBehaviour
         } else if (MonsterName.Contains("skeleton"))
         {
             Health = DifferentHealths[0];
+        } else if (MonsterName.Contains("werwolf")) {
+            Health = DifferentHealths[2];
+            MonsterName = "werwolf";
         }
             
     }

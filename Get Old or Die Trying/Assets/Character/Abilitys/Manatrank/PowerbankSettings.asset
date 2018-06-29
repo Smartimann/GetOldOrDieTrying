@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 9dc8250116ad669489f913d9b1444844, type: 3}
   Cooldown: 2
-  Count: 0
-  Regeneration: 2
+  Count: 10
+  Regeneration: 10

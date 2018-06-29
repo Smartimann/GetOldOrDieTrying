@@ -14,4 +14,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 9b6c1d06ac125ac4b9dc426970487628, type: 3}
   Cooldown: 10
   Regeneration: 2
-  Count: -38
+  Count: 10

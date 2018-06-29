@@ -27,6 +27,13 @@ public abstract class Character : MonoBehaviour
         NavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
+/* 
+    public void Decay(Ability current) {
+        
+    } */
+
+
+
     protected void Update()
     {
         if (Health > 0)
@@ -70,13 +77,15 @@ public abstract class Character : MonoBehaviour
 
         mySequence.Append(MeshRenderer.material.DOColor(OriginalMaterialColor, 0.02f));
 
-        Health -= damage;
+        Health -= (damage-CharacterSheet.Defense);
+        CharacterSheet.Health = Health;
     }
 
 
     public void UseMana(int cost) {
         if (Mana > 0) {
             Mana -= cost;    
+            CharacterSheet.Mana = Mana;
         } 
     }
 
